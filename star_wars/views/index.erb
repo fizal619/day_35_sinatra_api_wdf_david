@@ -1,0 +1,55 @@
+<html>
+    <head>
+    <meta charset="utf-8" />
+    <title>STAR PEOPLE</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.js"></script>
+    <style>
+      .container {
+        width: 80%;
+        margin: 20px auto;
+      }
+    </style>
+  </head>
+    <body>
+      <div class="ui container text">
+        <h1>STAR PEOPLE SEARCH</h1>
+        <form action="/results" method='POST'>
+          <div class="ui input">
+            <input name='person_id' type="text" placeholder="Person ID...">
+          </div>
+          <button class="ui primary button">
+            Save
+          </button>
+        </form>
+
+        <div class="results">
+          <% if @results %>
+          <div class="ui card">
+            <div class="image">
+              <img src="http://placekitten.com/200/200">
+            </div>
+            <div class="content">
+              <a class="header"><%= @results[:name] %></a>
+              <div class="meta">
+                <span class="date">Born <%= @results[:birth_year] %></span>
+              </div>
+              <div class="description">
+                Eye Color: <%= @results[:eye_color] %>
+              </div>
+            </div>
+            <div class="extra content">
+              <a>
+                <i class="user icon"></i>
+                Height: <%= @results[:height] %>
+              </a>
+            </div>
+          </div>
+        </div>
+        <% end %>
+        
+      </div>
+        
+    </body>
+</html>
