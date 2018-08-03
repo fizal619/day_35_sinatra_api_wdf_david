@@ -15,7 +15,7 @@
     <body>
       <div class="ui container text">
         <h1>NOT OPEN WEATHER SHOW</h1>
-        <form>
+        <form id="search-form">
           <div class="ui input">
             <input name='search' type="text" placeholder="Location">
           </div>
@@ -24,10 +24,12 @@
           </button>
         </form>
         <p>RESULT: <span id="result"></span></p>
+       
+
       </div>
     
     <script>
-        $('form').submit(e =>{
+        $('#search-form').submit(e =>{
             e.preventDefault();
             let search = e.target.search.value;
             $.get('/weather?search='+search).done(data=>{
